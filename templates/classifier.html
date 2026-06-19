@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Classifier | EcoVision 2.0{% endblock %}
+
+{% block content %}
+<section class="content-box classifier-page-box">
+
+    <section class="classifier-header">
+        <h1>SDG News Classifier</h1>
+        <p>
+            Enter a news article, paragraph, or report excerpt below.
+            The system will analyze the text and predict the most relevant Sustainable Development Goal.
+        </p>
+    </section>
+
+    <section class="classifier-form-section">
+        <form method="POST" class="classifier-form">
+            <label for="news_text">Enter News Text</label>
+            <textarea
+                id="news_text"
+                name="news_text"
+                placeholder="Paste your news article or paragraph here..."
+                required
+            >{{ input_text }}</textarea>
+
+            <button type="submit" class="predict-btn">Predict SDG</button>
+        </form>
+    </section>
+
+    {% if prediction %}
+
+    <section class="prediction-output-section">
+
+        <!-- SDG CARD -->
+        <div class="prediction-card">
+
+            <h2>Prediction Result</h2>
+
+            <h3>Top 3 Predictions</h3>
+
+            <ul class="top-predictions-list">
+                {% for item in top3_predictions %}
+                <li>{{ item.label }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    {% if sentiment %}
+
+    <section class="prediction-output-section">
+
+        <div class="prediction-card sentiment-card">
+
+            <h2>Sentiment Result</h2>
+
+            <div class="sentiment-display">
+
+                <span class="
+                    sentiment-badge
+                    {% if sentiment == 'Positive' %}
+                        positive
+                    {% elif sentiment == 'Negative' %}
+                        negative
+                    {% else %}
+                        neutral
+                    {% endif %}
+                ">
+                    {{ sentiment }}
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+    <section class="classifier-info-section">
+        <div class="classifier-info-card">
+            <h3>How to Use</h3>
+            <p>
+                Paste a meaningful news paragraph or article excerpt into the text box and click
+                <strong>Predict SDG</strong>. The system works best with descriptive text rather than
+                just a short headline.
+            </p>
+        </div>
+
+        <div class="classifier-info-card">
+            <h3>Best Input Style</h3>
+            <p>
+                For better results, provide at least 2 to 5 complete sentences describing the topic,
+                issue, event, or policy discussed in the news content.
+            </p>
+        </div>
+
+        <div class="classifier-info-card">
+            <h3>Model Used</h3>
+            <p>
+                This classifier is powered by a fine-tuned DistilBERT deep learning model trained
+                to categorize text across all 17 Sustainable Development Goals.
+            </p>
+        </div>
+    </section>
+
+</section>
+{% endblock %}

@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}SDG Explorer | EcoVision 2.0{% endblock %}
+
+{% block content %}
+<section class="content-box sdg-page-box">
+
+    <section class="sdg-page-header">
+        <h1>SDG Explorer</h1>
+        <p>
+            Explore all 17 Sustainable Development Goals through concise descriptions
+            and visual goal icons.
+        </p>
+    </section>
+    
+
+    <section class="sdg-list">
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-01.jpg') }}" alt="SDG 1">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 1 - No Poverty</h2>
+                <p>
+                    End poverty in all its forms everywhere. This goal focuses on ensuring
+                    social protection, equal access to resources, and reducing vulnerability
+                    to economic, social, and environmental shocks.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-02.jpg') }}" alt="SDG 2">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 2 - Zero Hunger</h2>
+                <p>
+                    End hunger, achieve food security and improved nutrition, and promote
+                    sustainable agriculture. It emphasizes access to safe, nutritious, and
+                    sufficient food for all people throughout the year.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-03.jpg') }}" alt="SDG 3">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 3 - Good Health and Well-being</h2>
+                <p>
+                    Ensure healthy lives and promote well-being for all at all ages. This
+                    includes reducing maternal mortality, ending preventable deaths, and
+                    improving access to healthcare and essential medicines.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-04.jpg') }}" alt="SDG 4">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 4 - Quality Education</h2>
+                <p>
+                    Ensure inclusive and equitable quality education and promote lifelong
+                    learning opportunities for all. It focuses on access, literacy, and
+                    skill development for sustainable futures.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-05.jpg') }}" alt="SDG 5">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 5 - Gender Equality</h2>
+                <p>
+                    Achieve gender equality and empower all women and girls. This includes
+                    ending discrimination, violence, and harmful practices while ensuring
+                    equal participation and opportunity.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-06.jpg') }}" alt="SDG 6">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 6 - Clean Water and Sanitation</h2>
+                <p>
+                    Ensure availability and sustainable management of water and sanitation
+                    for all. It covers access to safe drinking water, hygiene, and sanitation
+                    systems in both urban and rural communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-07.jpg') }}" alt="SDG 7">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 7 - Affordable and Clean Energy</h2>
+                <p>
+                    Ensure access to affordable, reliable, sustainable, and modern energy
+                    for all. This promotes renewable energy, energy efficiency, and expanded
+                    infrastructure for cleaner power access.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-08.jpg') }}" alt="SDG 8">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 8 - Decent Work and Economic Growth</h2>
+                <p>
+                    Promote sustained, inclusive, and sustainable economic growth, full and
+                    productive employment, and decent work for all. It addresses labor rights,
+                    job quality, and economic opportunity.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-09.jpg') }}" alt="SDG 9">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 9 - Industry, Innovation and Infrastructure</h2>
+                <p>
+                    Build resilient infrastructure, promote inclusive and sustainable
+                    industrialization, and foster innovation. This goal supports technology,
+                    research, transport, and digital development.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-10.jpg') }}" alt="SDG 10">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 10 - Reduced Inequalities</h2>
+                <p>
+                    Reduce inequality within and among countries. It promotes social, economic,
+                    and political inclusion of all people regardless of age, gender, disability,
+                    race, or background.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-11.jpg') }}" alt="SDG 11">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 11 - Sustainable Cities and Communities</h2>
+                <p>
+                    Make cities and human settlements inclusive, safe, resilient, and
+                    sustainable. It focuses on housing, transport, urban planning, and
+                    disaster risk reduction.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-12.jpg') }}" alt="SDG 12">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 12 - Responsible Consumption and Production</h2>
+                <p>
+                    Ensure sustainable consumption and production patterns. This includes
+                    efficient resource use, waste reduction, recycling, and environmentally
+                    responsible business practices.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-13.jpg') }}" alt="SDG 13">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 13 - Climate Action</h2>
+                <p>
+                    Take urgent action to combat climate change and its impacts. This includes
+                    mitigation, adaptation, resilience building, and integrating climate
+                    strategies into policy and planning.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-14.jpg') }}" alt="SDG 14">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 14 - Life Below Water</h2>
+                <p>
+                    Conserve and sustainably use the oceans, seas, and marine resources
+                    for sustainable development. It addresses marine pollution, biodiversity,
+                    and responsible ocean use.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-15.jpg') }}" alt="SDG 15">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 15 - Life on Land</h2>
+                <p>
+                    Protect, restore, and promote sustainable use of terrestrial ecosystems,
+                    manage forests sustainably, combat desertification, and halt biodiversity loss.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row reverse">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-16.jpg') }}" alt="SDG 16">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 16 - Peace, Justice and Strong Institutions</h2>
+                <p>
+                    Promote peaceful and inclusive societies, provide access to justice for all,
+                    and build effective, accountable, and inclusive institutions at all levels.
+                </p>
+            </div>
+        </div>
+
+        <div class="sdg-row">
+            <div class="sdg-image-card">
+                <img src="{{ url_for('static', filename='images/E_SDG_PRINT-17.jpg') }}" alt="SDG 17">
+            </div>
+            <div class="sdg-text-card">
+                <h2>SDG 17 - Partnerships for the Goals</h2>
+                <p>
+                    Strengthen the means of implementation and revitalize the global partnership
+                    for sustainable development through finance, knowledge sharing, trade, and cooperation.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+</section>
+{% endblock %}

@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | EcoVision 2.0{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}?v=1">
+
+<section class="content-box dashboard-v2">
+
+    <!-- Header -->
+    <section class="dashboard-v2-header">
+
+        <div class="dashboard-v2-title">
+            <h1>SDG Analytics Dashboard</h1>
+        </div>
+
+        <div class="dashboard-v2-actions">
+
+            <div class="dashboard-v2-badge" id="activeSdgBadge">
+                All SDGs
+            </div>
+
+            <button
+                class="dashboard-v2-reset"
+                id="resetFiltersBtn"
+                type="button">
+
+                Reset Filters
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Filters -->
+    <section class="dashboard-v2-filters">
+
+        <div class="dashboard-v2-filter">
+
+            <label for="sdgFilter">SDG</label>
+
+            <select id="sdgFilter">
+                <option value="">All SDGs</option>
+            </select>
+
+        </div>
+
+        <div class="dashboard-v2-filter">
+
+            <label for="sourceFilter">Label Source</label>
+
+            <select id="sourceFilter" disabled>
+                <option value="">All Data</option>
+            </select>
+
+        </div>
+
+        <div class="dashboard-v2-filter">
+
+            <div class="dashboard-v2-filter-head">
+
+                <label for="minConfFilter">
+                    Minimum Confidence
+                </label>
+
+                <span id="minConfValue">0.00</span>
+
+            </div>
+
+            <input
+                type="range"
+                id="minConfFilter"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+            >
+
+        </div>
+
+    </section>
+
+    <!-- KPI Cards -->
+    <section class="dashboard-v2-kpis">
+
+        <div class="dashboard-v2-kpi">
+            <span>Total Articles</span>
+            <h2 id="kpiTotalArticles">-</h2>
+        </div>
+
+        <div class="dashboard-v2-kpi">
+            <span>Average Confidence</span>
+            <h2 id="kpiAvgConfidence">-</h2>
+        </div>
+
+        <div class="dashboard-v2-kpi">
+            <span>Top SDG</span>
+            <h2 id="kpiTopSdg">-</h2>
+        </div>
+
+        <div class="dashboard-v2-kpi">
+            <span>Average Word Count</span>
+            <h2 id="kpiAvgWordCount">-</h2>
+        </div>
+
+    </section>
+
+    <!-- Charts Grid -->
+    <section class="dashboard-v2-grid">
+
+        <!-- SDG Distribution -->
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>SDG Distribution</h3>
+
+                <p>
+                    Click an SDG bar to filter the whole dashboard.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+
+                <canvas id="sdgDistributionChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <!-- Sentiment Distribution -->
+
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Sentiment Distribution</h3>
+
+                <p>
+                    Overall sentiment trends across sustainability news articles.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+
+                <canvas id="sentimentChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <!-- Confidence by SDG -->
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Confidence by SDG</h3>
+
+                <p>
+                    Average model confidence across each SDG class.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+                <canvas id="confidenceBySdgChart"></canvas>
+            </div>
+
+        </div>
+
+        <!-- Scatter -->
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Word Count vs Confidence</h3>
+
+                <p>
+                    How article length relates to model certainty.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+                <div id="scatterChart"></div>
+            </div>
+
+        </div>
+
+        <!-- Top Keywords -->
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Top Keywords</h3>
+
+                <p>
+                    Most frequent terms in the current filtered view.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+                <canvas id="keywordsChart"></canvas>
+            </div>
+
+        </div>
+
+        
+        <!-- ML vs DL -->
+        <div class="dashboard-v2-card">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>ML vs DL Performance</h3>
+
+                <p>
+                    Performance comparison between Machine Learning
+                    and Deep Learning models.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+
+                <img
+                    src="{{ url_for('static', filename='images/ml_vs_dl.png') }}"
+                    class="dashboard-chart-image"
+                    alt="ML vs DL Comparison"
+                >
+
+            </div>
+
+        </div>
+        <!-- Word Cloud -->
+        <div class="dashboard-v2-card wide">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Word Cloud</h3>
+
+                <p>
+                    Global SDG news word cloud visualization.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+
+                <img
+                    src="{{ url_for('static', filename='images/wordcloud.png') }}"
+                    class="dashboard-chart-image"
+                    alt="Word Cloud"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Articles Table -->
+        <div class="dashboard-v2-card wide">
+
+            <div class="dashboard-v2-card-header">
+
+                <h3>Filtered Articles</h3>
+
+                <p>
+                    Articles matching the current dashboard selection.
+                </p>
+
+            </div>
+
+            <div class="dashboard-v2-card-body">
+
+                <div class="dashboard-v2-table-wrap">
+
+                    <table class="dashboard-v2-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Title</th>
+                                <th>Primary SDG</th>
+                                <th>Top 1 Conf</th>
+                                <th>Top 2 SDG</th>
+                                <th>Top 2 Conf</th>
+                                <th>Word Count</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="articlesTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+<!-- Libraries -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+<!-- Dashboard JS -->
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock %}

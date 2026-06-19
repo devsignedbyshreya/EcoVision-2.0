@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Research | EcoVision 2.0{% endblock %}
+
+{% block content %}
+<section class="content-box research-page-box">
+
+    <section class="research-header">
+
+        <h1>Research Paper</h1>
+
+        <p>
+            This page presents the complete research behind the SDG News Categorization System.
+            You can read the paper below or download it for offline use.
+        </p>
+
+        <div class="research-buttons">
+            <a href="{{ url_for('static', filename='papers/research_paper.pdf') }}" 
+               class="btn btn-primary" 
+               download>
+                Download PDF
+            </a>
+        </div>
+            <p style="margin-top: 8px; font-size: 13px; color: #9aa3ad;">
+                Best viewed on desktop for full experience.
+            </p>
+        </div>
+    </section>
+
+    <section class="pdf-viewer-section">
+        <iframe 
+            src="{{ url_for('static', filename='papers/research_paper.pdf') }}"
+            class="pdf-frame">
+        </iframe>
+    </section>
+
+</section>
+{% endblock %}

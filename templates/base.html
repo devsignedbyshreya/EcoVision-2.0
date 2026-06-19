@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SDG News Categorization System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-bg">
+
+    <header class="top-navbar">
+        <div class="nav-left">
+            <a href="/" class="brand">EcoVision 2.0</a>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            <a href="/sdgs" class="{% if request.path == '/sdgs' %}active{% endif %}">SDG Explorer</a>
+            <a href="/classifier" class="{% if request.path == '/classifier' %}active{% endif %}">Classifier</a>
+            <a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">Dashboard</a>
+            <a href="/research" class="{% if request.path == '/research' %}active{% endif %}">Research</a>
+            <a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+        </nav>
+    </header>
+
+    <main class="main-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>
