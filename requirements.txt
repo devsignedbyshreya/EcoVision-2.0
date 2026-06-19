@@ -1,5 +1,4 @@
 flask
-gunicorn
 torch
 transformers
 deep-translator
@@ -7,3 +6,4 @@ langdetect
 sentencepiece
 safetensors
 pandas
+gunicorn
